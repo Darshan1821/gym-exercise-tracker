@@ -1,4 +1,5 @@
-/* You can add global styles to this file, and also import other style files */
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -8,3 +9,95 @@ html, body {
   background-color: #F8FAFC;
   font-family: Inter, system-ui, sans-serif;
 }
+
+.input {
+  @apply border border-border rounded-lg px-3 py-2 text-sm
+         focus:outline-none focus:ring-2 focus:ring-primary/20;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-8px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-slide-in {
+  animation: slideIn 0.25s ease-out;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+::ng-deep .mat-mdc-select-panel {
+  max-height: 280px !important;
+}
+
+::ng-deep .cdk-overlay-container {
+  z-index: 1000;
+}
+
+::ng-deep .mat-mdc-select-panel {
+  z-index: 1001;
+}
+
+::ng-deep .mat-bottom-sheet-container {
+  background: #ffffff;
+  border-radius: 16px 16px 0 0;
+  box-shadow: 0 -12px 32px rgba(0, 0, 0, 0.25);
+}
+
+/* Reduce Material component density globally */
+:root {
+  --mdc-outlined-text-field-container-height: 44px;
+  --mdc-filled-text-field-container-height: 44px;
+  --mdc-text-field-padding-vertical: 8px;
+}
+
+/* =========================================================
+   REMOVE UNUSED MDC SUBSCRIPT SPACE (SAFE)
+   ========================================================= */
+
+/* Hide subscript wrapper when empty */
+::ng-deep
+  .mat-mdc-form-field
+  .mat-mdc-form-field-subscript-wrapper:empty,
+.mat-bottom-sheet-container
+  .mat-mdc-form-field
+  .mat-mdc-form-field-subscript-wrapper:empty {
+  display: none;
+}
+
+/* Remove min-height when no error/hint */
+::ng-deep
+  .mat-mdc-form-field
+  .mat-mdc-form-field-subscript-wrapper,
+.mat-bottom-sheet-container
+  .mat-mdc-form-field
+  .mat-mdc-form-field-subscript-wrapper {
+  min-height: 0;
+  margin-top: 0;
+  padding-top: 0;
+}
+
+/* Restore spacing ONLY when error is present */
+::ng-deep
+  .mat-mdc-form-field.mat-form-field-invalid
+  .mat-mdc-form-field-subscript-wrapper,
+.mat-bottom-sheet-container
+  .mat-mdc-form-field.mat-form-field-invalid
+  .mat-mdc-form-field-subscript-wrapper {
+  display: block;
+  min-height: 16px;
+  margin-top: 4px;
+}
+
+
+
+
+

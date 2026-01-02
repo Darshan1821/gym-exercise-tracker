@@ -1,0 +1,30 @@
+<div class="fixed inset-0 bg-black/40 z-50 flex items-center justify-center">
+  <div class="bg-surface rounded-xl w-full max-w-md p-6 mx-4">
+    <h2 class="text-lg font-semibold text-text mb-4">
+      Add Person
+    </h2>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+      <input class="input" placeholder="First name" [(ngModel)]="model.firstName" />
+      <input class="input" placeholder="Last name" [(ngModel)]="model.lastName" />
+      <input class="input" type="number" placeholder="Age" [(ngModel)]="model.age" />
+      <input class="input" type="number" placeholder="Height (cm)" [(ngModel)]="model.height" />
+    </div>
+
+    <div class="flex justify-end gap-2 mt-6">
+      <button
+        class="border border-border px-4 py-2 rounded-lg text-sm"
+        (click)="close.emit()"
+      >
+        Cancel
+      </button>
+
+      <button
+        class="bg-primary hover:bg-primary-hover text-white px-4 py-2 rounded-lg text-sm"
+        (click)="submit()"
+      >
+        Save
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,12 +1,29 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import {
+  RouterOutlet,
+  RouterLink,
+  RouterLinkActive
+} from '@angular/router';
+import {
+  navbarAnimation,
+  mobileMenuAnimation
+} from './shared/animations/navbar-animations';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  standalone: true,
+  imports: [RouterOutlet, RouterLink, RouterLinkActive],
+  animations: [navbarAnimation, mobileMenuAnimation],
+  templateUrl: './app.component.html'
 })
 export class AppComponent {
-  title = 'gym-exercise-tracker';
+  mobileMenuOpen = false;
+
+  toggleMobileMenu() {
+    this.mobileMenuOpen = !this.mobileMenuOpen;
+  }
+
+  closeMobileMenu() {
+    this.mobileMenuOpen = false;
+  }
 }

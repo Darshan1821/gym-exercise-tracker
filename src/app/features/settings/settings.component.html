@@ -1,0 +1,95 @@
+<div class="settings-root">
+
+  <!-- ================= PAGE HEADER ================= -->
+  <div class="settings-header">
+    <h2 class="settings-title">Settings</h2>
+    <p class="settings-subtitle">
+      Manage workout types and app preferences
+    </p>
+  </div>
+
+  <!-- ================= WORKOUT TYPES CARD ================= -->
+  <section class="settings-card">
+
+    <!-- Card Header -->
+    <div class="settings-card-header">
+      <div>
+        <h3 class="settings-card-title">Workout Types</h3>
+        <p class="settings-card-desc">
+          Grouped by muscle category
+        </p>
+      </div>
+
+      <button
+        class="settings-add-btn"
+        (click)="openAddWorkoutType()"
+      >
+        + Add
+      </button>
+    </div>
+
+    <!-- Card Body -->
+    <div class="settings-card-body">
+
+      <mat-accordion multi>
+        <mat-expansion-panel
+          *ngFor="let group of groupedWorkoutTypes"
+          class="workout-category-panel"
+        >
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              {{ group.category }}
+            </mat-panel-title>
+
+            <mat-panel-description>
+              {{ group.items.length }} items
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+
+          <!-- Workout Types List -->
+          <div
+            *ngFor="let wt of group.items"
+            class="workout-type-row"
+          >
+            <div class="workout-type-info">
+              <div class="workout-type-name">
+                {{ wt.name }}
+              </div>
+              <div class="workout-type-meta">
+                {{ wt.active ? 'Active' : 'Disabled' }}
+              </div>
+            </div>
+
+            <div class="workout-type-actions">
+              <button
+                class="link-btn"
+                (click)="editWorkoutType(wt)"
+              >
+                Edit
+              </button>
+
+              <button
+                class="link-btn danger"
+                (click)="deleteWorkoutType(wt)"
+              >
+                Delete
+              </button>
+            </div>
+          </div>
+
+        </mat-expansion-panel>
+
+      </mat-accordion>
+
+      <div
+        *ngIf="!groupedWorkoutTypes.length"
+        class="settings-empty"
+      >
+        No workout types configured
+      </div>
+
+    </div>
+
+  </section>
+
+</div>

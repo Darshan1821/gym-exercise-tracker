@@ -4,14 +4,25 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: "#4F46E5",
+        primary: {
+          DEFAULT: "#0F172A",
+          hover: "#020617"
+        },
+
+        accent: "#10B981",
+
         bg: "#F8FAFC",
         surface: "#FFFFFF",
-        text: "#0F172A",
-        muted: "#64748B"
+        border: "#E2E8F0",
+
+        text: {
+          DEFAULT: "#0F172A",
+          muted: "#64748B"
+        },
+
+        danger: "#EF4444"
       }
     }
   },
   plugins: []
 };
-

@@ -1,0 +1,200 @@
+/* =========================================================
+   DAY DETAIL DIALOG – CLEAN MODERN UI
+   Scoped via .day-slide-dialog
+   ========================================================= */
+
+.day-slide-dialog .mat-mdc-dialog-container {
+  padding: 0;
+  background: #f9fafb; /* soft neutral background */
+  font-family: Inter, Roboto, system-ui, -apple-system, sans-serif;
+}
+
+/* ================= HEADER ================= */
+
+.day-slide-dialog .dialog-header {
+  padding: 14px 18px;
+  background: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.day-slide-dialog .dialog-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #111827;
+  margin: 0;
+}
+
+.day-slide-dialog .dialog-subtitle {
+  font-size: 11px;
+  color: #6b7280;
+  margin-top: 2px;
+}
+
+.day-slide-dialog .icon-btn {
+  font-size: 18px;
+  color: #6b7280;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.day-slide-dialog .icon-btn:hover {
+  color: #111827;
+}
+
+/* ================= BODY ================= */
+
+.day-slide-dialog .dialog-body {
+  flex: 1;
+  overflow-y: auto;
+  padding-bottom: 96px; /* space for sticky button */
+}
+
+/* ================= SECTIONS (CARD STYLE) ================= */
+
+.day-slide-dialog .dialog-section {
+  background: #ffffff;
+  margin: 12px;
+  padding: 16px;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+}
+
+/* ================= MATERIAL DENSITY ================= */
+
+/* Compact Material fields */
+:root {
+  --mdc-outlined-text-field-container-height: 42px;
+  --mdc-text-field-padding-vertical: 6px;
+}
+
+.day-slide-dialog .mat-mdc-form-field {
+  font-size: 13px;
+}
+
+/* Remove heavy outline feel */
+.day-slide-dialog .mat-mdc-notched-outline {
+  border-radius: 12px;
+}
+
+/* ================= TIME GRID ================= */
+
+.day-slide-dialog .time-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+/* ================= META & ERROR ================= */
+
+.day-slide-dialog .meta-text {
+  font-size: 11px;
+  color: #374151;
+}
+
+.day-slide-dialog .error-text {
+  font-size: 11px;
+  color: #dc2626;
+}
+
+/* ================= PRIMARY ACTION ================= */
+
+.day-slide-dialog .primary-btn {
+  position: sticky;
+  bottom: 16px;
+  margin: 0 16px;
+  height: 46px;
+  border-radius: 16px;
+  background: #000000;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.18);
+  transition: transform 120ms ease, box-shadow 120ms ease;
+}
+
+.day-slide-dialog .primary-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 16px 30px rgba(0, 0, 0, 0.22);
+}
+
+.day-slide-dialog .primary-btn:disabled {
+  opacity: 0.5;
+  box-shadow: none;
+  transform: none;
+}
+
+/* ================= SLOT CARD ================= */
+
+.day-slide-dialog .slot-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.day-slide-dialog .slot-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.day-slide-dialog .color-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.day-slide-dialog .slot-name {
+  font-size: 13px;
+  font-weight: 500;
+  color: #111827;
+}
+
+.day-slide-dialog .slot-time {
+  font-size: 12px;
+  color: #374151;
+  margin-left: 16px;
+}
+
+.day-slide-dialog .slot-meta {
+  font-size: 11px;
+  color: #6b7280;
+  margin-left: 16px;
+}
+
+.day-slide-dialog .slot-actions {
+  display: flex;
+  gap: 14px;
+  margin-left: 16px;
+  margin-top: 6px;
+}
+
+.day-slide-dialog .link-btn {
+  font-size: 11px;
+  font-weight: 500;
+  color: #2563eb;
+  cursor: pointer;
+}
+
+.day-slide-dialog .link-btn.danger {
+  color: #dc2626;
+}
+
+/* ================= EMPTY STATE ================= */
+
+.day-slide-dialog .empty-state {
+  font-size: 12px;
+  color: #9ca3af;
+  text-align: center;
+  padding: 24px 0;
+}

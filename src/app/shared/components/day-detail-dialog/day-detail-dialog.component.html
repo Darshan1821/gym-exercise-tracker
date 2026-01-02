@@ -1,0 +1,184 @@
+<div class="day-slide-dialog">
+
+  <!-- ================= HEADER ================= -->
+  <div class="dialog-header">
+    <div>
+      <h3 class="dialog-title">
+        {{ date | date:'dd MMM yyyy' }}
+      </h3>
+      <p class="dialog-subtitle">
+        Workout slots
+      </p>
+    </div>
+
+    <button
+      type="button"
+      class="icon-btn"
+      (click)="close()"
+      aria-label="Close"
+    >
+      ✕
+    </button>
+  </div>
+
+  <!-- ================= BODY ================= -->
+  <div class="dialog-body">
+
+    <!-- ================= ADD / EDIT SLOT ================= -->
+    <section class="dialog-section">
+
+      <!-- Person -->
+      <mat-form-field appearance="fill" class="w-full">
+        <mat-label>Person</mat-label>
+        <mat-select [(ngModel)]="slotForm.personId">
+          <mat-option
+            *ngFor="let p of people"
+            [value]="p.id"
+          >
+            {{ p.firstName }} {{ p.lastName }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <!-- Time pickers -->
+      <div class="time-grid">
+
+        <mat-form-field appearance="fill">
+          <mat-label>Start</mat-label>
+          <input
+            matInput
+            [matTimepicker]="startPicker"
+            [(ngModel)]="slotForm.startTime"
+            readonly
+          />
+          <mat-timepicker #startPicker></mat-timepicker>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>End</mat-label>
+          <input
+            matInput
+            [matTimepicker]="endPicker"
+            [(ngModel)]="slotForm.endTime"
+            readonly
+          />
+          <mat-timepicker #endPicker></mat-timepicker>
+        </mat-form-field>
+
+      </div>
+
+      <!-- Duration -->
+      <div
+        class="meta-text"
+        *ngIf="slotForm.startTime && slotForm.endTime"
+      >
+        Duration:
+        <strong>
+          {{ getDuration(slotForm.startTime, slotForm.endTime) }}
+        </strong>
+      </div>
+
+      <!-- Overlap warning -->
+      <div
+        *ngIf="
+          slotForm.startTime &&
+          slotForm.endTime &&
+          hasOverlap()
+        "
+        class="error-text"
+      >
+        Overlapping slot for this person
+      </div>
+
+      <!-- Workout types -->
+      <mat-form-field appearance="fill" class="w-full">
+        <mat-label>Workout types</mat-label>
+        <mat-select
+          multiple
+          [(ngModel)]="slotForm.workoutTypes"
+        >
+          <mat-optgroup
+            *ngFor="let group of workoutTypeGroups"
+            [label]="group.category"
+          >
+            <mat-option
+              *ngFor="let wt of group.items"
+              [value]="wt.id"
+            >
+              {{ wt.name }}
+            </mat-option>
+          </mat-optgroup>
+        </mat-select>
+      </mat-form-field>
+
+      <!-- Primary action -->
+      <button
+        class="primary-btn"
+        [disabled]="
+          !slotForm.personId ||
+          !slotForm.startTime ||
+          !slotForm.endTime ||
+          hasOverlap()
+        "
+        (click)="saveSlot()"
+      >
+        {{ editingSlot ? 'Update slot' : 'Add slot' }}
+      </button>
+
+    </section>
+
+    <!-- ================= EXISTING SLOTS ================= -->
+    <section class="dialog-section">
+
+      <div
+        *ngFor="let s of slots"
+        class="slot-card"
+      >
+        <div class="slot-header">
+          <span
+            class="color-dot"
+            [style.background]="getPersonColor(s.personId)"
+          ></span>
+
+          <span class="slot-name">
+            {{ getPersonName(s.personId) }}
+          </span>
+        </div>
+
+        <div class="slot-time">
+          {{ s.startTime }} – {{ s.endTime }}
+        </div>
+
+        <div class="slot-meta">
+          {{ getWorkoutTypeNames(s.workoutTypes) }}
+        </div>
+
+        <div class="slot-actions">
+          <button
+            class="link-btn"
+            (click)="startEdit(s)"
+          >
+            Edit
+          </button>
+
+          <button
+            class="link-btn danger"
+            (click)="deleteSlot(s)"
+          >
+            Delete
+          </button>
+        </div>
+      </div>
+
+      <div
+        *ngIf="!slots.length"
+        class="empty-state"
+      >
+        No slots for this day
+      </div>
+
+    </section>
+
+  </div>
+
+</div>

@@ -1,0 +1,207 @@
+/* =========================================================
+   SETTINGS PAGE – CLEAN, MODERN, MOBILE-FIRST
+   ========================================================= */
+
+.settings-root {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 16px;
+  font-family: Inter, Roboto, system-ui, -apple-system, sans-serif;
+}
+
+/* ================= PAGE HEADER ================= */
+
+.settings-header {
+  margin-bottom: 20px;
+}
+
+.settings-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.settings-subtitle {
+  font-size: 13px;
+  color: #6b7280;
+  margin-top: 4px;
+}
+
+/* ================= CARD ================= */
+
+.settings-card {
+  background: #ffffff;
+  border-radius: 18px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  overflow: hidden;
+}
+
+/* ---------- Card Header ---------- */
+
+.settings-card-header {
+  padding: 16px;
+  border-bottom: 1px solid #e5e7eb;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.settings-card-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.settings-card-desc {
+  font-size: 12px;
+  color: #6b7280;
+  margin-top: 2px;
+}
+
+/* ---------- Add Button ---------- */
+
+.settings-add-btn {
+  width: 100%;
+  height: 40px;
+  border-radius: 12px;
+  background: #000000;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+/* ================= CARD BODY ================= */
+
+.settings-card-body {
+  padding: 8px 0;
+}
+
+/* ---------- Workout Type Row ---------- */
+
+.workout-type-row {
+  padding: 12px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.workout-type-row:not(:last-child) {
+  border-bottom: 1px solid #f1f5f9;
+}
+
+/* ---------- Info ---------- */
+
+.workout-type-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.workout-type-name {
+  font-size: 14px;
+  font-weight: 500;
+  color: #111827;
+}
+
+.workout-type-meta {
+  font-size: 11px;
+  color: #6b7280;
+}
+
+/* ---------- Actions ---------- */
+
+.workout-type-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 16px;
+}
+
+.link-btn {
+  font-size: 13px;
+  font-weight: 500;
+  color: #2563eb;
+}
+
+.link-btn.danger {
+  color: #dc2626;
+}
+
+/* ---------- Empty State ---------- */
+
+.settings-empty {
+  padding: 24px;
+  font-size: 13px;
+  color: #9ca3af;
+  text-align: center;
+}
+
+/* =========================================================
+   WORKOUT TYPE ACCORDION – MODERN STYLE
+   ========================================================= */
+
+.workout-category-panel {
+  margin: 0 12px 12px;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+}
+
+.workout-category-panel .mat-expansion-panel-header {
+  background: #f9fafb;
+  padding: 0 16px;
+  min-height: 48px;
+}
+
+.workout-category-panel .mat-expansion-panel-header-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.workout-category-panel .mat-expansion-panel-header-description {
+  font-size: 12px;
+  color: #6b7280;
+}
+
+.workout-category-panel .mat-expansion-panel-body {
+  padding: 8px 0;
+}
+
+/* Reuse row styles */
+.workout-category-panel .workout-type-row {
+  padding: 12px 16px;
+}
+
+.workout-category-panel .workout-type-row:not(:last-child) {
+  border-bottom: 1px solid #f1f5f9;
+}
+
+/* ================= DESKTOP ENHANCEMENTS ================= */
+
+@media (min-width: 768px) {
+
+  .settings-root {
+    padding: 24px;
+  }
+
+  .settings-card-header {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .settings-add-btn {
+    width: auto;
+    padding: 0 14px;
+  }
+
+  .workout-type-row {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .workout-type-actions {
+    justify-content: flex-end;
+  }
+}

@@ -1,0 +1,37 @@
+<div class="sheet-root">
+
+  <div class="dialog-header">
+    <h3 class="dialog-title">
+      {{ data.workoutType ? 'Edit' : 'Add' }} Workout Type
+    </h3>
+
+    <button class="icon-btn" (click)="close()">✕</button>
+  </div>
+
+  <div class="dialog-section">
+
+    <mat-form-field appearance="outline">
+      <mat-label>Category</mat-label>
+      <input matInput [(ngModel)]="form.category" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Name</mat-label>
+      <input matInput [(ngModel)]="form.name" />
+    </mat-form-field>
+
+    <mat-slide-toggle [(ngModel)]="form.active">
+      Active
+    </mat-slide-toggle>
+
+    <button
+      class="primary-btn"
+      (click)="save()"
+      [disabled]="!form.category || !form.name"
+    >
+      Save
+    </button>
+
+  </div>
+
+</div>
