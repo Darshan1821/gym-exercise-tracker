@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "dist/gym-exercise-tracker",
+    "public": "dist/gym-exercise-tracker/browser",
     "ignore": [
       "firebase.json",
       "**/.*",
